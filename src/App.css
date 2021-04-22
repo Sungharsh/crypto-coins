@@ -1,9 +1,13 @@
 .App {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #282c34;
   color: white;
+  padding-top: 1rem;
+}
+
+.coin-text {
+  margin-bottom: 32px;
+  text-align: center;
 }

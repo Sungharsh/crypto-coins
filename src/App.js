@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import './App.css'
 import ShowCryptoCoins from './ShowCryptoCoins'
+import './App.css'
 
 function App() {
   const [coins, setCoins] = useState([])
@@ -13,21 +13,25 @@ function App() {
       )
       .then((res) => {
         setCoins(res.data)
-        console.log(res.data)
       })
       .catch((error) => console.log(error))
   }, [])
 
   return (
     <div className='App'>
-      <header className='App-header'>
-        <h1>Crypto Currency</h1>
-        <div className='coin-app'>
-          <div className='coin-search'>
-            <ShowCryptoCoins />
-          </div>
-        </div>
-      </header>
+      <h1 className='coin-text'>Crypto Currency</h1>
+
+      {coins.map((coin) => {
+        return (
+          <ShowCryptoCoins
+            key={coin.id}
+            image={coin.image}
+            name={coin.name}
+            symbol={coin.symbol}
+            currentPrice={coin.current_price}
+          />
+        )
+      })}
     </div>
   )
 }
