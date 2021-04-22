@@ -1,21 +1,33 @@
 import React from 'react'
 import './show-crypto.css'
 
-export const ShowCryptoCoins = ({ image, name, symbol, currentPrice }) => {
+export const ShowCryptoCoins = ({
+  image,
+  name,
+  symbol,
+  currentPrice,
+  highPrice_24_hours,
+}) => {
   return (
-    <div className='coin-container'>
-      <div className='coin-row'>
-        <div className='coin'>
+    <>
+      <tr className='coin-row'>
+        <td className='coin'>
           <img src={image} alt='crypto' />
-          <h1>{name}</h1>
-          <p className='coin-symbol'>{symbol}</p>
-        </div>
-
-        <div className='coin-data'>
-          <p className='coin-price'>${currentPrice}</p>
-        </div>
-      </div>
-    </div>
+        </td>
+        <td className='coin'>
+          <h1 className='coin coin-symbol'>{name}</h1>
+        </td>
+        <td className='coin'>
+          <p className='coin'>${symbol && currentPrice}</p>
+        </td>
+        <td className='coin'>
+          <p className='coin'>${symbol && highPrice_24_hours}</p>
+        </td>
+        <td className='coin'>
+          <p className='coin'>${symbol && highPrice_24_hours}</p>
+        </td>
+      </tr>
+    </>
   )
 }
 
