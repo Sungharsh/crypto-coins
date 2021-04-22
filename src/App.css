@@ -5,6 +5,7 @@
   background-color: #282c34;
   color: white;
   padding-top: 1rem;
+  min-height: 100vh;
 }
 
 .coin-text {
