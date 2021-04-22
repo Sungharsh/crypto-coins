@@ -28,7 +28,7 @@
   color: white;
 }
 
-.td-heading {
+th > p {
   display: flex;
   align-items: center;
   padding-right: 24px;

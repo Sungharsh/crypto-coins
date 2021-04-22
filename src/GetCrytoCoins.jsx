@@ -28,22 +28,22 @@ function App() {
           <thead className='coin-header'>
             <tr>
               <th>
-                <p className='td-heading'>Image</p>
+                <p>Image</p>
               </th>
               <th>
-                <p className='td-heading'>Name</p>
+                <p>Name</p>
               </th>
               <th>
-                <p className='td-heading'>Symbol</p>
+                <p>Symbol</p>
               </th>
               <th>
-                <p className='td-heading'>Current Price</p>
+                <p>Current Price</p>
               </th>
               <th>
-                <p className='td-heading'>High-24hr-Price</p>
+                <p>High-24hr-Price</p>
               </th>
               <th>
-                <p className='td-heading'>Low-24hr-Price</p>
+                <p>Low-24hr-Price</p>
               </th>
             </tr>
           </thead>
