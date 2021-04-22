@@ -10,21 +10,24 @@ export const ShowCryptoCoins = ({
 }) => {
   return (
     <>
-      <tr className='coin-row'>
+      <tr>
         <td className='coin'>
           <img src={image} alt='crypto' />
         </td>
-        <td className='coin'>
-          <h1 className='coin coin-symbol'>{name}</h1>
+        <td>
+          <p className='coin coin-symbol'>{name}</p>
         </td>
-        <td className='coin'>
-          <p className='coin'>${symbol && currentPrice}</p>
+        <td>
+          <p className='coin'>{symbol}</p>
         </td>
-        <td className='coin'>
-          <p className='coin'>${symbol && highPrice_24_hours}</p>
+        <td>
+          <p>€{currentPrice}</p>
         </td>
-        <td className='coin'>
-          <p className='coin'>${symbol && highPrice_24_hours}</p>
+        <td>
+          <p>€{highPrice_24_hours}</p>
+        </td>
+        <td>
+          <p>€{highPrice_24_hours}</p>
         </td>
       </tr>
     </>
