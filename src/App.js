@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
+import ShowCryptoCoins from './ShowCryptoCoins'
 
 function App() {
   const [coins, setCoins] = useState([])
@@ -20,7 +21,12 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <h1>Hello world</h1>
+        <h1>Crypto Currency</h1>
+        <div className='coin-app'>
+          <div className='coin-search'>
+            <ShowCryptoCoins />
+          </div>
+        </div>
       </header>
     </div>
   )
