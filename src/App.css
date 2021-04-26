@@ -27,7 +27,6 @@
   justify-content: flex-start;
   align-items: center;
   height: 80px;
-  /* width: 900px; */
   width: 1000px;
   background-color: #bdccff;
 }
@@ -52,17 +51,13 @@
 th > p {
   display: flex;
   align-items: center;
-  /* padding-right: 24px; */
   min-width: 130px;
-  /* min-width: 142.85px; */
 }
 
 .coin-container {
-  /* background-color: #282c34; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background-color: #282c34; */
   color: white;
   padding: 1rem;
 }
@@ -84,13 +79,11 @@ td {
   display: flex;
   align-items: center;
   padding-right: 24px;
-  /* min-width: 130px; */
   min-width: 142.85px;
 }
 
 td h1 p img {
   font-size: 16px;
-  /* width: 130px; */
   width: 142.85px;
 }
 
@@ -106,19 +99,13 @@ td h1 p img {
 
 .loding {
   margin-top: 50px;
-  /* color: white; */
   letter-spacing: 0.5rem;
 }
 
 .deatilsBtn {
   box-shadow: inset 0px 1px 3px 0px #91b8b3;
-  /* background: linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%); */
-  /* background-color: #768d87; */
   background-color: #d5dfff;
-  /* border-radius: 5px; */
   border: none;
-  /* border: 1px solid #566963; */
-  /* border: 1px solid #adffe5; */
   display: inline-block;
   cursor: pointer;
   color: #ffffff;
@@ -127,14 +114,16 @@ td h1 p img {
   font-weight: 500;
   padding: 11px 23px;
   text-decoration: none;
-  /* text-shadow: 0px -1px 0px #2b665e; */
+  margin-top: 10px;
 }
 .deatilsBtn:hover {
-  /* background: linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%); */
-  /* background-color: #6c7c7c; */
   background-color: #59bdbd;
 }
 .deatilsBtn:active {
   position: relative;
   top: 1px;
+}
+
+.detailsRow {
+  min-height: 5rem;
 }

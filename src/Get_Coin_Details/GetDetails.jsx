@@ -14,13 +14,10 @@ const GetDetails = () => {
   return (
     <div className='coin-container'>
       <header className='coin-subtitle'>
-        <button className='deatilsBtn'>
-          <Link to='/'>back</Link>
-        </button>
         <h1>&nbsp; Your selected Coin Details</h1>
       </header>
       <section>
-        <table>
+        <table className='detailsRow'>
           <thead className='coin-header'>
             <tr>
               <th>
@@ -62,6 +59,9 @@ const GetDetails = () => {
             })}
           </tbody>
         </table>
+        <button className='deatilsBtn'>
+          <Link to='/'>back</Link>
+        </button>
       </section>
     </div>
   )
