@@ -5,6 +5,7 @@ const CoinDetails = ({
   description,
   market_cap,
   homePage,
+  date,
 }) => {
   return (
     <tr>
@@ -25,6 +26,9 @@ const CoinDetails = ({
       </td>
       <td>
         <p>{homePage}</p>
+      </td>
+      <td>
+        <p>{date}</p>
       </td>
     </tr>
   )

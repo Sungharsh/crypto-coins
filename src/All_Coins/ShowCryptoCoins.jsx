@@ -33,7 +33,7 @@ export const ShowCryptoCoins = ({
     }, 500)
   }
 
-  const getCoinId = useCallback(() => setCoinId(id), [id])
+  const getCoinId = useCallback(() => setCoinId(id), [id, setCoinId])
 
   return (
     <tr>

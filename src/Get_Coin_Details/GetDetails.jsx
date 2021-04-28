@@ -8,6 +8,7 @@ import '../App.css'
 const GetDetails = () => {
   const { Coin } = useContext(CoinDetailsContext)
   const { CoinId } = useContext(CoinIDContext)
+  console.log(Coin)
 
   const selectedCoin = Coin.filter((item) => item.id === CoinId)
 
@@ -52,8 +53,8 @@ const GetDetails = () => {
                   description={coin.description}
                   market_cap={coin.market_data.market_cap.eur}
                   homePage={'homepage'}
-                  // homePage={coin.links.homepage[0]}
                   highPrice_24_hours={coin.high_24h}
+                  date={coin.last_updated}
                 />
               )
             })}
