@@ -1,27 +1,20 @@
-import { useState, useEffect, Suspense, lazy } from 'react'
+import { useState, Suspense, lazy } from 'react'
 import axios from 'axios'
 import '../App.css'
+import useSWR from 'swr'
 
 const ShowCryptoCoins = lazy(() => import('./ShowCryptoCoins'))
 
 function GetCryptoCoins() {
   const [AllCoins, setAllCoins] = useState([])
 
-  const url =
-    'https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=10&page=1&sparkline=false'
-
-  useEffect(() => {
-    async function getCoins() {
-      await axios
-        .get(url)
-        .then((res) => {
-          setAllCoins(res.data)
-        })
-        .catch((error) => console.log(error))
-    }
-
-    getCoins()
-  }, [])
+  useSWR(
+    'https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=10&page=1&sparkline=false',
+    (url) =>
+      axios(url).then((res) => {
+        setAllCoins(res.data)
+      })
+  )
 
   return (
     <div className='App'>

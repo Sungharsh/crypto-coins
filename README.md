@@ -16,8 +16,9 @@
 
 :shipit: App will launch automatically on the default browser:
 
+:file_folder: ## Dependencies: This project uses libraries and tools:
+
 ```
-:file_folder: ## Dependencies: This project uses libraries and tools like:
 1 @testing-library/jest-dom@5.12.0
 2 @testing-library/react@11.2.6
 3 @testing-library/user-event@12.8.3
@@ -26,5 +27,5 @@
 6 react-dom@17.0.2
 7 react-router-dom@5.2.0
 8 react-scripts@4.0.3
-
+9 swr React Hooks library for data fetching
 ```

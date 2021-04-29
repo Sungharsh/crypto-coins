@@ -1,8 +1,6 @@
 import { useContext, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { CoinIDContext } from '../Context/CoinIDContext'
-import { CoinDetailsContext } from '../Context/CoinDetailsContext'
-import axios from 'axios'
 import '../App.css'
 
 export const ShowCryptoCoins = ({
@@ -14,25 +12,7 @@ export const ShowCryptoCoins = ({
   highPrice_24_hours,
   lowPrice_24_hours,
 }) => {
-  const { setCoin } = useContext(CoinDetailsContext)
-  const { CoinId, setCoinId } = useContext(CoinIDContext)
-
-  const url = `https://api.coingecko.com/api/v3/coins/${CoinId}?localization=EUR&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=true`
-
-  const handleGetCoin = () => {
-    setTimeout(() => {
-      async function getCoinDetails() {
-        await axios
-          .get(url)
-          .then((res) => {
-            setCoin(res.data)
-          })
-          .catch((error) => console.log(error))
-      }
-      getCoinDetails()
-    }, 500)
-  }
-
+  const { setCoinId } = useContext(CoinIDContext)
   const getCoinId = useCallback(() => setCoinId(id), [id, setCoinId])
 
   return (
@@ -59,7 +39,6 @@ export const ShowCryptoCoins = ({
         <button
           onClick={() => {
             getCoinId()
-            handleGetCoin()
           }}
           className='deatilsBtn'
         >

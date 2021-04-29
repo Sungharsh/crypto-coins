@@ -1,16 +1,28 @@
-import React, { useContext } from 'react'
-import ShowDetails from './ShowDetails'
+import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { CoinDetailsContext } from '../Context/CoinDetailsContext'
 import { CoinIDContext } from '../Context/CoinIDContext'
 import '../App.css'
+import axios from 'axios'
 
 const GetDetails = () => {
-  const { Coin } = useContext(CoinDetailsContext)
   const { CoinId } = useContext(CoinIDContext)
-  console.log(Coin)
+  const [selectedCoins, setSelectedCoins] = useState([])
 
-  const selectedCoin = Coin.filter((item) => item.id === CoinId)
+  useEffect(() => {
+    if (CoinId) {
+      const url = `https://api.coingecko.com/api/v3/coins/${CoinId}?localization=EUR&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=true`
+
+      async function getCoinDetails() {
+        await axios
+          .get(url)
+          .then((res) => {
+            setSelectedCoins(res.data)
+          })
+          .catch((error) => console.log(error))
+      }
+      getCoinDetails()
+    }
+  }, [CoinId])
 
   return (
     <div className='coin-container'>
@@ -43,21 +55,32 @@ const GetDetails = () => {
             </tr>
           </thead>
           <tbody>
-            {selectedCoin.map((coin) => {
-              return (
-                <ShowDetails
-                  key={coin.id}
-                  name={coin.name}
-                  symbol={coin.symbol}
-                  algorithm={coin.hashing_algorithm}
-                  description={coin.description}
-                  market_cap={coin.market_data.market_cap.eur}
-                  homePage={'homepage'}
-                  highPrice_24_hours={coin.high_24h}
-                  date={coin.last_updated}
-                />
-              )
-            })}
+            <tr>
+              <td className='coin'>
+                <p className='coin-uppercase'>{selectedCoins.name}</p>
+              </td>
+              <td>
+                <p className='coin-uppercase'>{selectedCoins.symbol}</p>
+              </td>
+              <td>
+                <p className='coin-uppercase'>algorithm</p>
+              </td>
+              <td>
+                <p>Link</p>
+              </td>
+              <td>
+                <p>€ market_cap</p>
+              </td>
+              <td>
+                {/* {selectedCoins.links.map((item) => {
+                  return <p>{item[0]} </p>
+                })} */}
+                <p>€ market_cap</p>
+              </td>
+              <td>
+                <p>{selectedCoins.genesis_date}</p>
+              </td>
+            </tr>
           </tbody>
         </table>
         <button className='deatilsBtn'>
