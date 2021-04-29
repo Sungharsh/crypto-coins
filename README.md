@@ -8,7 +8,7 @@
 
 :soccer: ** Quick start** :cloud:
 
-:clone:git clone https://github.com/Sungharsh/crypto-coins.git :clone:
+:arrow_down: git clone https://github.com/Sungharsh/crypto-coins.git
 
 :ship: npm install
 
