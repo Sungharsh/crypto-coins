@@ -5,7 +5,7 @@ database.
 
 ---
 
-### :heavy*check_mark: \_Tech stack used in this project*
+### :heavy_check_mark: Tech stack used in this project
 
 - ReactJS - JavaScript library for building user interfaces
 - React Router DOM - provides DOM-specific methods like routing.
@@ -28,7 +28,7 @@ database.
 
 ---
 
-### :heavy\*check*mark: \_Tech Stack Versions*
+### :heavy_check_mark: Tech Stack Versions
 
 ```sh
 1 @testing-library/jest-dom@5.12.0
