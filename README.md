@@ -24,7 +24,7 @@ database.
 - :ship: npm install
 - :rocket: npm start
 - :shipit: App will launch automatically on the default browser:
-- :file_folder: ## Dependencies: This project uses libraries and tools:
+- :file_folder: npm run build: To create production build
 
 ---
 
