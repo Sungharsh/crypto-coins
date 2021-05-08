@@ -21,6 +21,7 @@
 .navBar h1 {
   color: #00008e;
 }
+
 .coin-header {
   display: flex;
   flex-direction: row;
@@ -45,7 +46,7 @@
   background-color: #f2f2f2;
 }
 .coin-container tr:hover {
-  background-color: #ddd;
+  background-color: #ececec;
 }
 
 th > p {
@@ -74,6 +75,11 @@ tr {
   width: 1000px;
   padding-left: 5px;
 }
+tr > h1 {
+  width: 100%;
+  display: block;
+  text-align: center;
+}
 
 td {
   display: flex;
@@ -98,13 +104,15 @@ td h1 p img {
 }
 
 .loding {
-  margin-top: 50px;
+  display: block;
+  text-align: center;
+  margin-top: 10px;
   letter-spacing: 0.5rem;
 }
 
 .deatilsBtn {
   box-shadow: inset 0px 1px 3px 0px #91b8b3;
-  background-color: #d5dfff;
+  background-color: #99b0ff;
   border: none;
   display: inline-block;
   cursor: pointer;
@@ -117,7 +125,7 @@ td h1 p img {
   margin-top: 10px;
 }
 .deatilsBtn:hover {
-  background-color: #59bdbd;
+  background-color: #6084fd;
 }
 .deatilsBtn:active {
   position: relative;

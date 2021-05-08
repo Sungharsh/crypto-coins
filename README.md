@@ -1,24 +1,36 @@
-## A React application built with coingecko API to fetch and display crypto currency sensex from database.
+## 🚀 A React JS application
 
-# Web App - Crypto Coins built with ReactJS, React Router DOM, Axios.
+Built with coingecko API to fetch and display crypto currency sensex from
+database.
+
+---
+
+### :heavy*check_mark: \_Tech stack used in this project*
+
+- ReactJS - JavaScript library for building user interfaces
+- React Router DOM - provides DOM-specific methods like routing.
+- Axios - HTTP client to make http request on API's
+- SWR - it is used to cash api data, with this UI will be fast and reactive
+
+---
 
 :soccer: **How to run this application** :cloud:
 
-## 🚀 download the file or clone in to a folder, open this project in vscode, run "npm install", next run "npm start".
+### :heavy_check_mark: download the project or clone into local folder and follow below steps
 
 :soccer: ** Quick start** :cloud:
 
-:arrow_down: git clone https://github.com/Sungharsh/crypto-coins.git
+- :arrow_down: git clone https://github.com/Sungharsh/crypto-coins.git
+- :ship: npm install
+- :rocket: npm start
+- :shipit: App will launch automatically on the default browser:
+- :file_folder: ## Dependencies: This project uses libraries and tools:
 
-:ship: npm install
+---
 
-:rocket: npm start
+### :heavy\*check*mark: \_Tech Stack Versions*
 
-:shipit: App will launch automatically on the default browser:
-
-:file_folder: ## Dependencies: This project uses libraries and tools:
-
-```
+```sh
 1 @testing-library/jest-dom@5.12.0
 2 @testing-library/react@11.2.6
 3 @testing-library/user-event@12.8.3

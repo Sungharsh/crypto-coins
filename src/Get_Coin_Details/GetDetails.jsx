@@ -7,27 +7,32 @@ import axios from 'axios'
 const GetDetails = () => {
   const { CoinId } = useContext(CoinIDContext)
   const [selectedCoins, setSelectedCoins] = useState([])
+  const [isLoding, setIsLoding] = useState(true)
 
   useEffect(() => {
     if (CoinId) {
-      const url = `https://api.coingecko.com/api/v3/coins/${CoinId}?localization=EUR&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=true`
-
-      async function getCoinDetails() {
-        await axios
-          .get(url)
-          .then((res) => {
-            setSelectedCoins(res.data)
-          })
-          .catch((error) => console.log(error))
-      }
-      getCoinDetails()
+      setTimeout(() => {
+        setIsLoding(true)
+        const url = `https://api.coingecko.com/api/v3/coins/${CoinId}?localization=EUR&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=true`
+        async function getCoinDetails() {
+          await axios
+            .get(url)
+            .then((res) => {
+              setSelectedCoins(res.data)
+            })
+            .catch((error) => console.log(error))
+        }
+        getCoinDetails()
+        setIsLoding(false)
+      }, 1000)
     }
+    return setIsLoding(true)
   }, [CoinId])
 
   return (
     <div className='coin-container'>
       <header className='coin-subtitle'>
-        <h1>&nbsp; Your selected Coin Details</h1>
+        <h2>&nbsp; Your selected Coin Details</h2>
       </header>
       <section>
         <table className='detailsRow'>
@@ -56,36 +61,43 @@ const GetDetails = () => {
           </thead>
           <tbody>
             <tr>
-              <td className='coin'>
-                <p className='coin-uppercase'>{selectedCoins.name}</p>
-              </td>
-              <td>
-                <p className='coin-uppercase'>{selectedCoins.symbol}</p>
-              </td>
-              <td>
-                <p className='coin-uppercase'>algorithm</p>
-              </td>
-              <td>
-                <p>Link</p>
-              </td>
-              <td>
-                <p>€ market_cap</p>
-              </td>
-              <td>
-                {/* {selectedCoins.links.map((item) => {
-                  return <p>{item[0]} </p>
-                })} */}
-                <p>€ market_cap</p>
-              </td>
-              <td>
-                <p>{selectedCoins.genesis_date}</p>
-              </td>
+              {typeof selectedCoins !== 'undefined' && !isLoding && (
+                <>
+                  <td className='coin'>
+                    <p className='coin-uppercase'>{selectedCoins.name}</p>
+                  </td>
+                  <td>
+                    <p className='coin-uppercase'>{selectedCoins.symbol}</p>
+                  </td>
+                  <td>
+                    <p className='coin-uppercase'>{selectedCoins.symbol}</p>
+                  </td>
+                  <td>
+                    <p>{selectedCoins.symbol}</p>
+                  </td>
+                  <td>
+                    <p>{selectedCoins.symbol}</p>
+                  </td>
+
+                  <td>
+                    <p>{selectedCoins.links ? 'Link' : 'Loding...'}</p>
+                  </td>
+                  <td>
+                    <p>{selectedCoins.genesis_date}</p>
+                  </td>
+                </>
+              )}
+              {isLoding && (
+                <td>
+                  <h1 className='loding'>Loding...</h1>
+                </td>
+              )}
             </tr>
           </tbody>
         </table>
-        <button className='deatilsBtn'>
-          <Link to='/'>back</Link>
-        </button>
+        <Link to='/'>
+          <button className='deatilsBtn'>back</button>
+        </Link>
       </section>
     </div>
   )

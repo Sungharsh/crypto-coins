@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, Suspense } from 'react'
 import { Route } from 'react-router-dom'
 import GetCryptoCoins from './All_Coins/GetCryptoCoins'
 import GetDetails from './Get_Coin_Details/GetDetails'
@@ -15,8 +15,10 @@ function App() {
     <>
       <CoinIDContext.Provider value={coinID}>
         <NavBar />
-        <Route path='/' exact component={GetCryptoCoins} />
-        <Route path='/Coin-Deatils' component={GetDetails} />
+        <Suspense fallback={<h1 className='loding'>Loding....</h1>}>
+          <Route path='/' exact component={GetCryptoCoins} />
+          <Route path='/Coin-Deatils' component={GetDetails} />
+        </Suspense>
       </CoinIDContext.Provider>
     </>
   )

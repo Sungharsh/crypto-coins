@@ -36,14 +36,16 @@ export const ShowCryptoCoins = ({
         <p>€ {lowPrice_24_hours}</p>
       </td>
       <td>
-        <button
-          onClick={() => {
-            getCoinId()
-          }}
-          className='deatilsBtn'
-        >
-          <Link to='/Coin-Deatils'>Details</Link>
-        </button>
+        <Link to='/Coin-Deatils'>
+          <button
+            onClick={() => {
+              getCoinId()
+            }}
+            className='deatilsBtn'
+          >
+            Details
+          </button>
+        </Link>
       </td>
     </tr>
   )
