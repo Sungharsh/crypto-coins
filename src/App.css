@@ -20,6 +20,7 @@
 }
 .navBar h1 {
   color: #00008e;
+  padding: 10px;
 }
 
 .coin-header {
@@ -27,9 +28,10 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  height: 80px;
+  height: 50px;
   width: 1000px;
-  background-color: #bdccff;
+  border-bottom: 1px solid black;
+  background-color: #e4e3e3;
 }
 .coin-subtitle {
   display: flex;
@@ -45,8 +47,8 @@
 .coin-container tr:nth-child(even) {
   background-color: #f2f2f2;
 }
-.coin-container tr:hover {
-  background-color: #ececec;
+.coin-container tbody tr:hover {
+  background-color: #fff5bf;
 }
 
 th > p {
@@ -61,6 +63,7 @@ th > p {
   align-items: center;
   color: white;
   padding: 1rem;
+  margin-bottom: 2rem;
 }
 th {
   text-align: left;
@@ -71,7 +74,6 @@ tr {
   justify-content: flex-start;
   align-items: center;
   height: 80px;
-  border-bottom: 1px solid #d7d7d7;
   width: 1000px;
   padding-left: 5px;
 }
@@ -123,6 +125,8 @@ td h1 p img {
   padding: 11px 23px;
   text-decoration: none;
   margin-top: 10px;
+  margin-left: 20px;
+  border: 1px solid#505050;
 }
 .deatilsBtn:hover {
   background-color: #6084fd;
@@ -131,7 +135,43 @@ td h1 p img {
   position: relative;
   top: 1px;
 }
-
-.detailsRow {
-  min-height: 5rem;
+.weblink {
+  color: blue;
+}
+.weblink p {
+  display: none;
+  font-weight: 100;
+  padding-right: 20px;
+}
+.weblink:hover p {
+  display: block;
+}
+.footer {
+  position: fixed;
+  height: 2rem;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #bdccff;
+  color: white;
+  text-align: center;
+}
+.description-container {
+  max-width: 65%;
+  align-items: center;
+  color: white;
+  padding: 0 4.5rem;
+  margin: 1rem 4.5rem;
+  border: 1px solid black;
+}
+.description-heading {
+  display: block;
+  text-align: center;
+  padding: 1rem;
+}
+.description {
+  font-size: 18px;
+  text-align: left;
+  padding: 0rem 1rem 4rem;
+  line-height: 2;
 }

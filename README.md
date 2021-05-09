@@ -39,5 +39,5 @@ database.
 6 react-dom@17.0.2
 7 react-router-dom@5.2.0
 8 react-scripts@4.0.3
-9 swr React Hooks library for data fetching
+9 swr@0.5.5
 ```

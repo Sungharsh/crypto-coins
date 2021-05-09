@@ -4,6 +4,7 @@ import GetCryptoCoins from './All_Coins/GetCryptoCoins'
 import GetDetails from './Get_Coin_Details/GetDetails'
 import NavBar from './NavBar'
 import { CoinIDContext } from './Context/CoinIDContext'
+import Footer from './Footer'
 import './App.css'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path='/' exact component={GetCryptoCoins} />
           <Route path='/Coin-Deatils' component={GetDetails} />
         </Suspense>
+        <Footer />
       </CoinIDContext.Provider>
     </>
   )

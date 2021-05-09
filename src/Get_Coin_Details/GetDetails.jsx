@@ -32,10 +32,10 @@ const GetDetails = () => {
   return (
     <div className='coin-container'>
       <header className='coin-subtitle'>
-        <h2>&nbsp; Your selected Coin Details</h2>
+        <h2>Your selected Coin Details</h2>
       </header>
       <section>
-        <table className='detailsRow'>
+        <table className='coin-container'>
           <thead className='coin-header'>
             <tr>
               <th>
@@ -48,15 +48,13 @@ const GetDetails = () => {
                 <p>Algorithm</p>
               </th>
               <th>
-                <p>Description</p>
-              </th>
-              <th>
-                <p>Market Cap in Euro</p>
+                <p>€ MarketCap</p>
               </th>
               <th>
                 <p>Homepage</p>
               </th>
               <th>Genesis Date</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -70,20 +68,41 @@ const GetDetails = () => {
                     <p className='coin-uppercase'>{selectedCoins.symbol}</p>
                   </td>
                   <td>
-                    <p className='coin-uppercase'>{selectedCoins.symbol}</p>
+                    {selectedCoins.hashing_algorithm ? (
+                      <p>{selectedCoins.hashing_algorithm}</p>
+                    ) : (
+                      'not avaiable'
+                    )}
                   </td>
                   <td>
-                    <p>{selectedCoins.symbol}</p>
+                    {selectedCoins.market_data ? (
+                      <p>€ {selectedCoins.market_data.market_cap.eur}</p>
+                    ) : null}
                   </td>
                   <td>
-                    <p>{selectedCoins.symbol}</p>
+                    {selectedCoins.links ? (
+                      <a
+                        target='_blank'
+                        rel='noreferrer'
+                        href={selectedCoins.links.homepage[0]}
+                        className='weblink'
+                      >
+                        <p>Visit link</p>
+                        Website
+                      </a>
+                    ) : null}
                   </td>
-
                   <td>
-                    <p>{selectedCoins.links ? 'Link' : 'Loding...'}</p>
+                    {selectedCoins.genesis_date ? (
+                      <p>{selectedCoins.genesis_date}</p>
+                    ) : (
+                      'not available'
+                    )}
                   </td>
                   <td>
-                    <p>{selectedCoins.genesis_date}</p>
+                    <Link to='/'>
+                      <button className='deatilsBtn'>back</button>
+                    </Link>
                   </td>
                 </>
               )}
@@ -95,10 +114,13 @@ const GetDetails = () => {
             </tr>
           </tbody>
         </table>
-        <Link to='/'>
-          <button className='deatilsBtn'>back</button>
-        </Link>
       </section>
+      {selectedCoins.description ? (
+        <div className='description-container'>
+          <h2 className='description-heading'>Description</h2>
+          <p className='description'>{selectedCoins.description.es}</p>
+        </div>
+      ) : null}
     </div>
   )
 }
