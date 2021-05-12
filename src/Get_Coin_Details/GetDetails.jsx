@@ -15,20 +15,19 @@ const GetDetails = () => {
         setIsLoding(true)
         const url = `https://api.coingecko.com/api/v3/coins/${CoinId}?localization=EUR&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=true`
         async function getCoinDetails() {
-          await axios
+          axios
             .get(url)
             .then((res) => {
               setSelectedCoins(res.data)
+              setIsLoding(false)
             })
-            .catch((error) => console.log(error))
+            .catch((error) => setSelectedCoins(error), setIsLoding(false))
         }
         getCoinDetails()
-        setIsLoding(false)
       }, 1000)
     }
     return setIsLoding(true)
   }, [CoinId])
-
   return (
     <div className='coin-container'>
       <header className='coin-subtitle'>
@@ -59,10 +58,19 @@ const GetDetails = () => {
           </thead>
           <tbody>
             <tr>
+              {isLoding && (
+                <td>
+                  <h1 className='loding'>Loding...</h1>
+                </td>
+              )}
               {typeof selectedCoins !== 'undefined' && !isLoding && (
                 <>
                   <td className='coin'>
-                    <p className='coin-uppercase'>{selectedCoins.name}</p>
+                    {selectedCoins.name ? (
+                      <p className='coin-uppercase'>{selectedCoins.name}</p>
+                    ) : (
+                      <h2 className='loding'>Loding...</h2>
+                    )}
                   </td>
                   <td>
                     <p className='coin-uppercase'>{selectedCoins.symbol}</p>
@@ -71,7 +79,11 @@ const GetDetails = () => {
                     {selectedCoins.hashing_algorithm ? (
                       <p>{selectedCoins.hashing_algorithm}</p>
                     ) : (
-                      'not avaiable'
+                      <p>
+                        {selectedCoins.hashing_algorithm === null
+                          ? 'Not Available'
+                          : '----'}
+                      </p>
                     )}
                   </td>
                   <td>
@@ -96,20 +108,19 @@ const GetDetails = () => {
                     {selectedCoins.genesis_date ? (
                       <p>{selectedCoins.genesis_date}</p>
                     ) : (
-                      'not available'
+                      <p>
+                        {selectedCoins.genesis_date === null
+                          ? 'Not Available'
+                          : '-----'}
+                      </p>
                     )}
                   </td>
                   <td>
-                    <Link to='/'>
-                      <button className='deatilsBtn'>back</button>
+                    <Link to='/' className='deatilsBtn'>
+                      back
                     </Link>
                   </td>
                 </>
-              )}
-              {isLoding && (
-                <td>
-                  <h1 className='loding'>Loding...</h1>
-                </td>
               )}
             </tr>
           </tbody>
@@ -120,7 +131,9 @@ const GetDetails = () => {
           <h2 className='description-heading'>Description</h2>
           <p className='description'>{selectedCoins.description.es}</p>
         </div>
-      ) : null}
+      ) : (
+        <p>------</p>
+      )}
     </div>
   )
 }

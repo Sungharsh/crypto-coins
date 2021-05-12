@@ -2,6 +2,7 @@ import { useContext, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { CoinIDContext } from '../Context/CoinIDContext'
 import '../App.css'
+import PropTypes from 'prop-types'
 
 export const ShowCryptoCoins = ({
   id,
@@ -36,15 +37,14 @@ export const ShowCryptoCoins = ({
         <p>€ {lowPrice_24_hours}</p>
       </td>
       <td>
-        <Link to='/Coin-Deatils'>
-          <button
-            onClick={() => {
-              getCoinId()
-            }}
-            className='deatilsBtn'
-          >
-            Details
-          </button>
+        <Link
+          to='/Coin-Deatils'
+          className='deatilsBtn'
+          onClick={() => {
+            getCoinId()
+          }}
+        >
+          Details
         </Link>
       </td>
     </tr>
@@ -52,3 +52,8 @@ export const ShowCryptoCoins = ({
 }
 
 export default ShowCryptoCoins
+
+ShowCryptoCoins.propTypes = {
+  name: PropTypes.string,
+  id: PropTypes.string,
+}

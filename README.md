@@ -40,4 +40,5 @@ database.
 7 react-router-dom@5.2.0
 8 react-scripts@4.0.3
 9 swr@0.5.5
+10 prop-types@15.7.2
 ```

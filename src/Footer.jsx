@@ -4,7 +4,6 @@ import './App.css'
 const Footer = () => {
   return (
     <div className='footer'>
-      <hr />
       <a
         target='_blank'
         rel='noreferrer'
