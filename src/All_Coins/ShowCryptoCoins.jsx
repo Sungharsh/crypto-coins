@@ -5,9 +5,9 @@ import '../App.css'
 import PropTypes from 'prop-types'
 
 export const ShowCryptoCoins = ({
+  name,
   id,
   image,
-  name,
   symbol,
   currentPrice,
   highPrice_24_hours,
@@ -56,4 +56,9 @@ export default ShowCryptoCoins
 ShowCryptoCoins.propTypes = {
   name: PropTypes.string,
   id: PropTypes.string,
+  image: PropTypes.string,
+  symbol: PropTypes.string,
+  currentPrice: PropTypes.number,
+  highPrice_24_hours: PropTypes.number,
+  lowPrice_24_hours: PropTypes.number,
 }

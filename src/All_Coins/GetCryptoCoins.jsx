@@ -9,17 +9,15 @@ const ShowCryptoCoins = lazy(() => import('./ShowCryptoCoins'))
 // data with sibiling, but for now we are ignoring it because api endpoint is only used in this component.
 const fetcher = (url) => axios.get(url).then((res) => res.data)
 
-function GetCryptoCoins() {
+function GetCryptoCoins(props) {
   const [AllCoins, setAllCoins] = useState([])
 
-  const {
-    data,
-    error,
-  } = useSWR(
+  const { data, error } = useSWR(
     'https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=10&page=1&sparkline=false',
     fetcher,
     { suspense: true }
   )
+
   useEffect(() => {
     setAllCoins(data)
   }, [setAllCoins, data])
@@ -76,6 +74,16 @@ function GetCryptoCoins() {
       </section>
     </div>
   )
+}
+
+GetCryptoCoins.defaultProps = {
+  id: 1,
+  image: '/public/logo192.png',
+  name: 'Coin name',
+  symbol: 'Coin Symbol',
+  currentPrice: 'Currnet Price',
+  highPrice_24_hours: 'High price',
+  lowPrice_24_hours: 'Low price',
 }
 
 export default GetCryptoCoins

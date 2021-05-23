@@ -4,7 +4,7 @@ import { CoinIDContext } from '../Context/CoinIDContext'
 import '../App.css'
 import axios from 'axios'
 
-const GetDetails = () => {
+const GetDetails = (props) => {
   const { CoinId } = useContext(CoinIDContext)
   const [selectedCoins, setSelectedCoins] = useState([])
   const [isLoding, setIsLoding] = useState(true)
@@ -26,12 +26,25 @@ const GetDetails = () => {
         getCoinDetails()
       }, 1000)
     }
+
     return setIsLoding(true)
   }, [CoinId])
+
   return (
     <div className='coin-container'>
       <header className='coin-subtitle'>
-        <h2>Your selected Coin Details</h2>
+        <h2 className='coin'>
+          {selectedCoins.name ? (
+            <>
+              <p>
+                Your selected crypto coin :
+                <span style={{ color: 'Blue' }}> {selectedCoins.name} </span>
+              </p>
+            </>
+          ) : (
+            <h2 className='loding'>Loding...</h2>
+          )}
+        </h2>
       </header>
       <section>
         <table className='coin-container'>
@@ -127,7 +140,7 @@ const GetDetails = () => {
         </table>
       </section>
       {selectedCoins.description ? (
-        <div className='description-container'>
+        <div className='description-container coin-container'>
           <h2 className='description-heading'>Description</h2>
           <p className='description'>{selectedCoins.description.es}</p>
         </div>

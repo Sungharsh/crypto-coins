@@ -11,14 +11,17 @@ function App() {
   const [CoinId, setCoinId] = useState('')
 
   const coinID = useMemo(() => ({ CoinId, setCoinId }), [CoinId, setCoinId])
-
   return (
     <>
       <CoinIDContext.Provider value={coinID}>
         <NavBar />
         <Suspense fallback={<h1 className='loding'>Loding....</h1>}>
           <Route path='/' exact component={GetCryptoCoins} />
-          <Route path='/Coin-Deatils' component={GetDetails} />
+
+          <Route
+            path='/Coin-Deatils'
+            render={(props) => <GetDetails coinid={CoinId} {...props} />}
+          />
         </Suspense>
         <Footer />
       </CoinIDContext.Provider>
